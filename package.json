@@ -1,0 +1,27 @@
+{
+  "name": "practice",
+  "version": "1.0.0",
+  "description": "ファイルのバージョン管理を行うシステム\r ### github\r gitのポスティングサービス\r ### リポジトリ(repository)\r gitで管理するファイル群の一単位。  \r githubにはこのリポジトリ単位でファイルが管理される。  \r リポジトリにはローカルリポジトリとリモートリポジトリがあり、  \r 自身のPCにクローンしたリポジトリをローカルリポジトリ、  \r githubに上がっている元のリポジトリをリモートリポジトリと呼ぶ。\r ### クローン(clone)\r githubに上がっているリポジトリをローカルにコピーしてくることを指す。  \r 単純にzip等でコピーするのとは異なり、gitのコミット履歴等を含めたコピーというイメージ。  \r クローンすることで、後述のプル(pull)、プッシュ(push)することが可能になり、リモートリポジトリの変更を取得、ローカルリポジトリの変更をリモートリポジトリに反映することが可能になる。\r ### ブランチ(branch)\r 説明が難しい。世界線みたいな感じ。  \r 基準点から派生した分岐。文字通り枝。  \r 意図して操作しない限り、ブランチ同士は干渉しない。  \r こちらもローカルブランチとリモートブランチが存在する。  \r 手元のPCにあるのがローカルブランチ、githubにあがってるのがリモートブランチ。  \r 基本的には以下のような名称でブランチが作成される。  \r #### masterブランチ\r 大元のブランチ。基本的にすべてのブランチはmasterから分岐し、masterにマージ(merge)される（後述）\r #### featureブランチ\r 作業用にmasterから分岐したブランチ。  \r 各作業者、各作業内容等で作成し、その際には `feature/hoge` のような形で作業者・作業内容等の名称をつける。  \r ### チェックアウト(checkout)\r ブランチを移動すること。\r ### コミット(commit)\r リポジトリ内の変更を記録する単位。  \r どのファイルを、誰が、いつ、どういう感じに修正したか、を記録するセーブポイント。  \r 粒度は現場、人によって結構まちまち。  \r gitは基本このcommitを重ねることでバージョンを進めていく。\r ### フェッチ(fetch)\r ローカルブランチとリモートブランチに差異がないかを確認する操作。\r ### プル(pull)\r リモートブランチの変更をローカルブランチに反映する操作。\r ### プッシュ(push)\r ローカルブランチの変更をリモートブランチに反映する操作。\r ### マージ(merge)\r ブランチとブランチを混ぜる操作。\r ### コンフリクト(conflict)\r マージの際、マージする側とされる側に同じ行に別々の修正が行われていることによって発生する競合。  \r 複数人で同じファイルをいじってると割と発生する。  \r 発生の際はどちらが正しいかを判別し、競合を解決する必要がある。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch-sass": "node-sass --include-path scss assets/scss/style.scss assets/css/style.css -w",
+    "watch-server": "browser-sync start --server ./ --startPath ./ reload --files=\"./**/*\"",
+    "default": "run-p watch-sass watch-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xeno98555/practice.git"
+  },
+  "author": "xeno",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xeno98555/practice/issues"
+  },
+  "homepage": "https://github.com/xeno98555/practice#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "node-sass": "^4.13.0",
+    "npm-run-all": "^4.1.5"
+  }
+}
