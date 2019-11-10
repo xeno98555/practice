@@ -44,3 +44,31 @@ gitは基本このcommitを重ねることでバージョンを進めていく�
 マージの際、マージする側とされる側に同じ行に別々の修正が行われていることによって発生する競合。  
 複数人で同じファイルをいじってると割と発生する。  
 発生の際はどちらが正しいかを判別し、競合を解決する必要がある。
+# githubのリモートリポジトリをssh接続でクローンしてくる手順(Windows)
+SourceTreeはダウンロード済み、Atlassianアカウント取得済みという前提
+## git for Windowsをダウンロード
+以下からgit for Windowsをダウンロード
+https://gitforwindows.org/
+## git bashを立ち上げて、sshキーを作成
+gitをインストールしたディレクトリに移動して、git-bash.exeを起動。  
+起動後、以下のコマンドを実行  
+```
+ssh-keygen
+```
+id_rsaの置き場はデフォルトでいいのでそのままEnter。  
+passphraseを入力してEnter。  
+passphraseの確認を求められるので、上記で入れたのと同じpassphraseを入力してEnter。  
+以上で、 `C:¥Users¥【ユーザー名】¥.ssh` に `id_rsa` (秘密鍵)と `id_rsa.pub` (公開鍵)が作成される。
+## 公開鍵をgithubのアカウント設定に入力
+`id_rsa.pub` をエディタ等で開き、中身を全コピー。  
+github.comをブラウザで開き、右上のユーザーのアイコンをクリック → Setting を選択。  
+移動したページの左メニューから `SSH and GPG keys` を選択。 
+緑色の `New SSH key` ボタンをクリック。  
+`Title` に何か適切な名称を入力。 `Key` に先ほどコピーした `id_rsa.pub` の内容をペースト。  
+`Add SSH key` をクリックして完了。
+## SourceTreeの設定
+SourceTreeのメニュー `ツール` から `オプション` を選択。  
+`SSH Client Configuration` の `SSH Client:` を `Open SSH` に変更。  
+`SSH Key:` に上記で作成した `id_rsa` (秘密鍵) のファイルパスを入力する。(デフォなら `C:¥Users¥【ユーザー名】¥.ssh/id_rsa`)  
+アカウントのタブに移動して、githubのアカウントを設定。  
+以上でクローンする準備は完了。
