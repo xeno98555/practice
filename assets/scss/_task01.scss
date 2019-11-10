@@ -1,0 +1,64 @@
+#task01 {
+  .carousel {
+    height: 180px;
+    overflow-x: hidden;
+    position: relative;
+    .itemList {
+      padding: 0;
+      display: flex;
+      flex-wrap: nowrap;
+      list-style: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: .3s left ease;
+      .item {
+        margin-left: 20px;
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+    .prevButton,
+    .nextButton {
+      width: 30px;
+      height: 100%;
+      background-color: rgba(255, 255, 255, .5);
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      transition: .2s opacity ease;
+      &:hover {
+        opacity: .8;
+      }
+      &:before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        display: block;
+        border-top: 3px solid #333;
+        position: absolute;
+        top: 50%;
+      }
+      &.hide {
+        display: none;
+      }
+    }
+    .prevButton {
+      left: 0;
+      &:before {
+        border-left: 3px solid #333;
+        left: 50%;
+        transform: translateY(-50%) rotate(-45deg);
+      }
+    }
+    .nextButton {
+      right: 0;
+      &:before {
+        border-right: 3px solid #333;
+        right: 50%;
+        transform: translateY(-50%) rotate(45deg);
+      }
+    }
+  }
+}

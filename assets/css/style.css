@@ -302,3 +302,57 @@ template {
  */
 [hidden] {
   display: none; }
+
+#task01 .carousel {
+  height: 180px;
+  overflow-x: hidden;
+  position: relative; }
+  #task01 .carousel .itemList {
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    list-style: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: .3s left ease; }
+    #task01 .carousel .itemList .item {
+      margin-left: 20px; }
+      #task01 .carousel .itemList .item:first-child {
+        margin-left: 0; }
+  #task01 .carousel .prevButton,
+  #task01 .carousel .nextButton {
+    width: 30px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    transition: .2s opacity ease; }
+    #task01 .carousel .prevButton:hover,
+    #task01 .carousel .nextButton:hover {
+      opacity: .8; }
+    #task01 .carousel .prevButton:before,
+    #task01 .carousel .nextButton:before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      display: block;
+      border-top: 3px solid #333;
+      position: absolute;
+      top: 50%; }
+    #task01 .carousel .prevButton.hide,
+    #task01 .carousel .nextButton.hide {
+      display: none; }
+  #task01 .carousel .prevButton {
+    left: 0; }
+    #task01 .carousel .prevButton:before {
+      border-left: 3px solid #333;
+      left: 50%;
+      transform: translateY(-50%) rotate(-45deg); }
+  #task01 .carousel .nextButton {
+    right: 0; }
+    #task01 .carousel .nextButton:before {
+      border-right: 3px solid #333;
+      right: 50%;
+      transform: translateY(-50%) rotate(45deg); }
