@@ -303,6 +303,9 @@ template {
 [hidden] {
   display: none; }
 
+#css_task01 .container {
+  width: 100%; }
+
 #task01 .carousel {
   height: 180px;
   overflow-x: hidden;
